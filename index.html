@@ -43,8 +43,9 @@ See <a href="https://computational-combinatorics.github.io/n-combinations/index.
 <a href="https://www.npmjs.com/package/regenerator-runtime">regenerator-runtime/runtime</a>.</p>
 </blockquote>
 <pre><code class="lang-js"><code class="source-code prettyprint">import {combinations} from &apos;@combinatorics/n-combinations&apos;;
-
 combinations(&quot;ABCD&quot;, 2); // AB AC AD BC BD CD
+
+import {range} from &apos;@iterable-iterator/range&apos;;
 combinations(range(4), 3); // 012 013 023 123</code>
 </code></pre>
 <p><a href="https://raw.githubusercontent.com/computational-combinatorics/n-combinations/main/LICENSE"><img src="https://img.shields.io/github/license/computational-combinatorics/n-combinations.svg" alt="License"></a>
