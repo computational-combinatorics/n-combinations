@@ -10,8 +10,9 @@ See [docs](https://computational-combinatorics.github.io/n-combinations/index.ht
 
 ```js
 import {combinations} from '@combinatorics/n-combinations';
-
 combinations("ABCD", 2); // AB AC AD BC BD CD
+
+import {range} from '@iterable-iterator/range';
 combinations(range(4), 3); // 012 013 023 123
 ```
 
