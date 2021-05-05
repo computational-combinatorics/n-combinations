@@ -1,5 +1,5 @@
 import {list} from '@iterable-iterator/list';
-import {range} from '@iterable-iterator/range';
+import {forwardRangeIterator} from '@iterable-iterator/range';
 
 /**
  * Yields all k-subsets of {0, 1, ..., n-1}.
@@ -11,7 +11,7 @@ import {range} from '@iterable-iterator/range';
 export default function* _combinations(n, k) {
 	if (k > n) return;
 
-	const indices = list(range(0, k, 1));
+	const indices = list(forwardRangeIterator(0, k, 1));
 
 	yield indices;
 
