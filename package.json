@@ -60,7 +60,11 @@
     "release": "np --message ':hatching_chick: release: Bumping to v%s.'",
     "test": "ava"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@iterable-iterator/list": "^0.0.2",
+    "@iterable-iterator/map": "^0.1.0",
+    "@iterable-iterator/range": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "7.14.0",
     "@babel/preset-env": "7.14.0",

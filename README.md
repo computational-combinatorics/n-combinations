@@ -11,6 +11,13 @@ See [docs](https://computational-combinatorics.github.io/n-combinations/index.ht
 > `regeneratorRuntime` to be defined, for instance by importing
 > [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).
 
+```js
+import {combinations} from '@combinatorics/n-combinations';
+
+combinations("ABCD", 2); // AB AC AD BC BD CD
+combinations(range(4), 3); // 012 013 023 123
+```
+
 [![License](https://img.shields.io/github/license/computational-combinatorics/n-combinations.svg)](https://raw.githubusercontent.com/computational-combinatorics/n-combinations/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@combinatorics/n-combinations.svg)](https://www.npmjs.org/package/@combinatorics/n-combinations)
 [![Tests](https://img.shields.io/github/workflow/status/computational-combinatorics/n-combinations/ci:test?event=push&label=tests)](https://github.com/computational-combinatorics/n-combinations/actions/workflows/ci:test.yml?query=branch:main)

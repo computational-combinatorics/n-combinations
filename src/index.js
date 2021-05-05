@@ -1,2 +1,1 @@
-const answer = 42;
-export default answer;
+export {default as combinations} from './combinations.js';
