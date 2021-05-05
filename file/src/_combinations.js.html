@@ -37,7 +37,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/_combinations.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {list} from &apos;@iterable-iterator/list&apos;;
-import {range} from &apos;@iterable-iterator/range&apos;;
+import {forwardRangeIterator} from &apos;@iterable-iterator/range&apos;;
 
 /**
  * Yields all k-subsets of {0, 1, ..., n-1}.
@@ -49,7 +49,7 @@ import {range} from &apos;@iterable-iterator/range&apos;;
 export default function* _combinations(n, k) {
 	if (k &gt; n) return;
 
-	const indices = list(range(0, k, 1));
+	const indices = list(forwardRangeIterator(0, k, 1));
 
 	yield indices;
 
