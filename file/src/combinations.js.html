@@ -29,15 +29,17 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-combinations">combinations</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_combinations">_combinations</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-combinations">combinations</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/combinations.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {list} from &apos;@iterable-iterator/list&apos;;
-import {pick} from &apos;@iterable-iterator/map&apos;;
-import {range} from &apos;@iterable-iterator/range&apos;;
+import {map, pick} from &apos;@iterable-iterator/map&apos;;
+
+import _combinations from &apos;./_combinations.js&apos;;
 
 /**
  * Yields all combinations of each possible choice of &lt;code&gt;r&lt;/code&gt; elements
@@ -53,45 +55,17 @@ import {range} from &apos;@iterable-iterator/range&apos;;
  *
  * @param {Iterable} iterable - The input iterable.
  * @param {number} r - The size of the combinations to generate.
- * @returns {IterableIterator}
+ * @returns {IterableIterator&lt;Array&gt;}
  */
-export default function* combinations(iterable, r) {
+const combinations = (iterable, r) =&gt; {
 	const pool = list(iterable);
-	const length = pool.length;
+	return map(
+		(indices) =&gt; list(pick(pool, indices)),
+		_combinations(pool.length, r),
+	);
+};
 
-	if (r &gt; length) {
-		return;
-	}
-
-	const indices = list(range(0, r, 1));
-
-	yield list(pick(pool, indices));
-
-	while (true) {
-		let i = r - 1;
-
-		// eslint-disable-next-line no-constant-condition
-		while (true) {
-			if (i &lt; 0) {
-				return;
-			}
-
-			if (indices[i] !== i + length - r) {
-				let pivot = ++indices[i];
-
-				for (++i; i &lt; r; ++i) {
-					indices[i] = ++pivot;
-				}
-
-				break;
-			}
-
-			--i;
-		}
-
-		yield list(pick(pool, indices));
-	}
-}
+export default combinations;
 </code></pre>
 
 </div>

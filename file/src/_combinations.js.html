@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/index.js | @combinatorics/n-combinations</title>
+  <title data-ice="title">src/_combinations.js | @combinatorics/n-combinations</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -35,8 +35,45 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export {default as combinations} from &apos;./combinations.js&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/_combinations.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {list} from &apos;@iterable-iterator/list&apos;;
+import {range} from &apos;@iterable-iterator/range&apos;;
+
+/**
+ * Yields all k-subsets of {0, 1, ..., n-1}.
+ *
+ * @param {number} n
+ * @param {number} k
+ * @returns {IterableIterator&lt;number[]&gt;}
+ */
+export default function* _combinations(n, k) {
+	if (k &gt; n) return;
+
+	const indices = list(range(0, k, 1));
+
+	yield indices;
+
+	while (true) {
+		let i = k - 1;
+
+		// eslint-disable-next-line no-constant-condition
+		while (true) {
+			if (i &lt; 0) return;
+
+			if (indices[i] !== i + n - k) {
+				let pivot = ++indices[i];
+
+				for (++i; i &lt; k; ++i) indices[i] = ++pivot;
+
+				break;
+			}
+
+			--i;
+		}
+
+		yield indices;
+	}
+}
 </code></pre>
 
 </div>

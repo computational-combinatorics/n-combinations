@@ -1,5 +1,11 @@
 window.esdocSearchIndex = [
   [
+    "@combinatorics/n-combinations/src/_combinations.js~_combinations",
+    "function/index.html#static-function-_combinations",
+    "<span>_combinations</span> <span class=\"search-result-import-path\">@combinatorics/n-combinations/src/_combinations.js</span>",
+    "function"
+  ],
+  [
     "@combinatorics/n-combinations/src/combinations.js~combinations",
     "function/index.html#static-function-combinations",
     "<span>combinations</span> <span class=\"search-result-import-path\">@combinatorics/n-combinations/src/combinations.js</span>",
@@ -286,6 +292,12 @@ window.esdocSearchIndex = [
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
     "src/.external-ecmascript.js~undefined",
     "external"
+  ],
+  [
+    "src/_combinations.js",
+    "file/src/_combinations.js.html",
+    "src/_combinations.js",
+    "file"
   ],
   [
     "src/combinations.js",
