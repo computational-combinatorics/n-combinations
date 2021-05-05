@@ -1,6 +1,7 @@
 import {list} from '@iterable-iterator/list';
-import {pick} from '@iterable-iterator/map';
-import {range} from '@iterable-iterator/range';
+import {map, pick} from '@iterable-iterator/map';
+
+import _combinations from './_combinations.js';
 
 /**
  * Yields all combinations of each possible choice of <code>r</code> elements
@@ -16,42 +17,14 @@ import {range} from '@iterable-iterator/range';
  *
  * @param {Iterable} iterable - The input iterable.
  * @param {number} r - The size of the combinations to generate.
- * @returns {IterableIterator}
+ * @returns {IterableIterator<Array>}
  */
-export default function* combinations(iterable, r) {
+const combinations = (iterable, r) => {
 	const pool = list(iterable);
-	const length = pool.length;
+	return map(
+		(indices) => list(pick(pool, indices)),
+		_combinations(pool.length, r),
+	);
+};
 
-	if (r > length) {
-		return;
-	}
-
-	const indices = list(range(0, r, 1));
-
-	yield list(pick(pool, indices));
-
-	while (true) {
-		let i = r - 1;
-
-		// eslint-disable-next-line no-constant-condition
-		while (true) {
-			if (i < 0) {
-				return;
-			}
-
-			if (indices[i] !== i + length - r) {
-				let pivot = ++indices[i];
-
-				for (++i; i < r; ++i) {
-					indices[i] = ++pivot;
-				}
-
-				break;
-			}
-
-			--i;
-		}
-
-		yield list(pick(pool, indices));
-	}
-}
+export default combinations;
