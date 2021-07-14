@@ -63,7 +63,7 @@
   "dependencies": {
     "@iterable-iterator/list": "^0.0.2",
     "@iterable-iterator/map": "^0.1.0",
-    "@iterable-iterator/range": "^1.0.0"
+    "@iterable-iterator/range": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
