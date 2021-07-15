@@ -6,14 +6,14 @@
 
 First, require the polyfill at the entry point of your application
 ```js
-require( 'regenerator-runtime/runtime' ) ;
+await import( 'regenerator-runtime/runtime.js' ) ;
 // or
 import 'regenerator-runtime/runtime.js' ;
 ```
 
 Then, import the library where needed
 ```js
-const nCombinations = require( '@combinatorics/n-combinations' ) ;
+const nCombinations = await import( '@combinatorics/n-combinations' ) ;
 // or
 import * as nCombinations from '@combinatorics/n-combinations' ;
 ```
