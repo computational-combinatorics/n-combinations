@@ -68,8 +68,8 @@
     "@iterable-iterator/range": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.14.6",
-    "@babel/preset-env": "7.14.7",
+    "@babel/core": "7.14.8",
+    "@babel/preset-env": "7.14.8",
     "@babel/register": "7.14.5",
     "@commitlint/cli": "12.1.4",
     "@js-library/commitlint-config": "0.0.4",
