@@ -1,7 +1,7 @@
 {
   "name": "@combinatorics/n-combinations",
   "description": "Set n-combinations for JavaScript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "AGPL-3.0",
   "author": "make-github-pseudonymous-again",
   "homepage": "https://computational-combinatorics.github.io/n-combinations",
