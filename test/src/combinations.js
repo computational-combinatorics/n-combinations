@@ -2,6 +2,7 @@ import test from 'ava';
 
 import {list} from '@iterable-iterator/list';
 import {range} from '@iterable-iterator/range';
+
 import {combinations} from '#module';
 
 const repr = (x) => (Array.isArray(x) ? JSON.stringify(x) : x);
